@@ -1,0 +1,23 @@
+name: Weekly Lunch Menu Calendar Update
+on:
+  schedule:
+    # Runs at 8:00 AM UTC every Sunday
+    - cron: '0 8 * * 0'
+  workflow_dispatch:  # Allows manual triggering through GitHub UI
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13.0'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt
+    - name: Create credentials files
+      run: |
+        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > credentials.json
+        echo "${{ secrets.GOOGLE_TOKEN }}" > token.json
