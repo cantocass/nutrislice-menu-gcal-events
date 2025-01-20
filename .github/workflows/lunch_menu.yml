@@ -19,5 +19,5 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Create credentials files
       run: |
-        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > credentials.json
+        echo "${{ secrets.GOOGLE_CLIENT_SECRET }}" > client_secrets.json
         echo "${{ secrets.GOOGLE_TOKEN }}" > token.json
