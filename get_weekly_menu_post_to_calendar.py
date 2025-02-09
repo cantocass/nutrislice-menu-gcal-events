@@ -9,7 +9,7 @@ if __name__ == '__main__':
     check_calendar_credentials()
     # get date
     # Date for the week to fetch (start of the week)
-    start_date = datetime.date.today()  # Update as needed
+    start_date = datetime.today()  # Update as needed
     year, month, day = start_date.year, start_date.month, start_date.day
 
     # get menu for week with date

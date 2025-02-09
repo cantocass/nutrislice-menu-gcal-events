@@ -25,6 +25,11 @@ def fetch_menu_data_for_week_from_date(year, month, day) -> List[MenuEvent]:
 
     url = os.getenv('BASE_API_URL') + f"/{year}/{month:02d}/{day:02d}?format=json"
     response = requests.get(url)
+    # Create a JSONDecoder object
+    decoder = json.JSONDecoder()
+
+    # Decode the JSON string into a Python dictionary
+    menu_data = decoder.decode(response.text)
 
     if response.status_code != 200:
         print(f"Failed to fetch menu data. HTTP Status Code: {response.status_code}")
