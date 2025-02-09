@@ -21,3 +21,6 @@ jobs:
       run: |
         echo "${{ secrets.GOOGLE_CLIENT_SECRET }}" > client_secrets.json
         echo "${{ secrets.GOOGLE_TOKEN }}" > token.json
+    - name: Get Menu and Post to Calendar
+      run: |
+        python get_weekly_menu_post_to_calendar.py
